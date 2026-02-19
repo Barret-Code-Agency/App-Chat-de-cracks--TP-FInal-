@@ -25,7 +25,7 @@ const LoadingScreen = ({ onFinished }) => {
     return (
         <div className="loading-screen">
             <div className="loading-content">
-                {/* Logo Gigante (puedes usar un SVG o un emoji) */}
+                {/* Logo Gigante*/}
                 <div className="big-logo">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WA Logo" />
                 </div>

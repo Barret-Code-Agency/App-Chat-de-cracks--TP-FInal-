@@ -1,12 +1,12 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import React, { useState } from 'react'; // Añadimos React para usar el LoadingScreen
+import React, { useState } from 'react';
 import { ChatProvider, useChat } from './context/ChatContext';
 import Login from './pages/Login.jsx';
 import ContactList from './pages/ContactList.jsx';
 import ChatPage from './pages/ChatPage.jsx';
 import './styles/App.css';
 
-// 1. MODAL DE VIDEO (Lo mantenemos como estaba)
+// 1. MODAL DE VIDEO
 const StatusOverlay = () => {
   const { activeStatus, closeStatus } = useChat();
   if (!activeStatus) return null;
@@ -24,7 +24,7 @@ const StatusOverlay = () => {
 const LoadingScreen = ({ onFinished }) => {
   const [progress, setProgress] = useState(0);
   React.useEffect(() => {
-    const duration = 10000; // 10 Segundos
+    const duration = 10000;
     const interval = setInterval(() => {
       setProgress(prev => {
         if (prev >= 100) { clearInterval(interval); setTimeout(onFinished, 500); return 100; }
@@ -53,12 +53,12 @@ function App() {
     return savedUser !== null && savedUser !== 'Usuario';
   });
 
-  // Si showSplash es true, mostramos solo la carga
+
   if (showSplash) {
     return <LoadingScreen onFinished={() => setShowSplash(false)} />;
   }
 
-  // Una vez que termina la carga, muestra la App normal
+  // Una vez que termina la carga, muestra la App
   return (
     <ChatProvider>
       <Router>
