@@ -36,21 +36,24 @@ body {
     height: 100vh;
     background-color: #ffffff;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center; 
     z-index: 10000;
 }
 
 .loading-content {
-    text-align: center;
-    width: 80%;
-    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 500px;
+    padding: 20px;
 }
 
 .big-logo img {
-    width: 120px;
-    height: 120px;
+    width: 5000px;
+    height: 500px;
     margin-bottom: 50px;
     animation: pulse 2s infinite ease-in-out;
 }
@@ -79,7 +82,7 @@ body {
 
 .progress-bar {
     width: 100%;
-    height: 6px;
+    height: 10px;
     background-color: #e9edef;
     border-radius: 10px;
     overflow: hidden;
@@ -96,6 +99,7 @@ body {
     margin-top: 10px;
     color: var(--wa-green);
     font-weight: bold;
+    font-size: 25px;
 }
 
 @keyframes pulse {
@@ -236,14 +240,14 @@ body {
 }
 
 .sidebar-header {
+    height: 60px;
+    background-color: #f0f2f5;
     display: flex;
     align-items: center;
-    gap: 10px;
-    height: 70px;
-    padding: 15px;
-    background-color: var(--wa-bg);
-    border-bottom: 1px solid var(--wa-border);
-    justify-content: flex-start;
+    justify-content: space-between;
+    padding: 10px 16px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.10);
+    flex-shrink: 0;
 }
 
 .user-avatar-container, 
@@ -285,7 +289,7 @@ body {
 
 .contact-link {
     display: flex;
-    padding: 12px;
+    padding: 10px;
     text-decoration: none;
     color: inherit;
     border-bottom: 1px solid var(--wa-bg);
@@ -318,6 +322,7 @@ body {
     max-width: 400px; 
     height: 80vh;
 }
+
 
 .status-video {
     width: 100%;
@@ -363,32 +368,6 @@ body {
     border: none;
 }
 
-.status-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: rgba(0, 0, 0, 0.9);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 2000;
-}
-
-.status-container {
-    position: relative;
-    width: 90%;
-    max-width: 400px;
-    height: 80vh;
-}
-
-.status-video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 15px;
-}
 
 .close-status-btn {
     position: absolute;
@@ -414,13 +393,14 @@ body {
 }
 
 .chat-header {
-    background: var(--wa-bg);
-    padding: 10px 15px;
+    height: 60px; /* Altura fija para ambos */
+    background-color: #f0f2f5;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-bottom: 1px solid var(--wa-border);
-    height: 70px;
+    padding: 0 16px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08); /* Línea divisoria muy fina */
+    flex-shrink: 0;
 }
 
 .chat-header-content {
@@ -463,8 +443,8 @@ body {
     gap: 8px;
     background-color: #e5ddd5;
     background-image: url("https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png");
-    background-blend-mode: overlay;
-    opacity: 0.9;
+    background-blend-mode: multiply;
+    opacity: 0.7;
 }
 
 .typing-text {
@@ -501,6 +481,8 @@ body {
     border-radius: 8px;
     font-size: 0.95rem;
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+    position: relative;
+    width: fit-content;
 }
 
 .msg-bubble.me {
@@ -508,13 +490,15 @@ body {
     background-color: #dcf8c6;
     color: #111b21;
     border: 1px solid #c0e0a8;
+    border-top-right-radius: 0;
 }
 
 .msg-bubble.them {
-    align-self: flex-start;
+    align-self: flex-start !important;
     background-color: var(--white);
     color: #111b21;
     border: 1px solid #e0e0e0;
+    border-top-left-radius: 0;
 }
 
 .avatar {

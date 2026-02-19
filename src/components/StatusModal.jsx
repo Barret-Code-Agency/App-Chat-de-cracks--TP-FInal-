@@ -12,3 +12,5 @@ const StatusModal = () => {
         </div>
     );
 };
+
+export default StatusModal;
